@@ -40,7 +40,7 @@ let upload_contract = async () => {
     contractCodeHash = (
         await secretjs.query.compute.codeHashByCodeId({ code_id: codeId })
     ).code_hash;
-    console.log(`Contract hash: ${contractCodeHash}`);
+    console.log(`Code hash: ${contractCodeHash}`);
 
 };
 
@@ -68,7 +68,7 @@ let instantiate_contract = async () => {
         (log) => log.type === "message" && log.key === "contract_address"
     ).value;
 
-    console.log(contractAddress);
+    console.log(`Contract address: ${contractAddress}`);
 };
 
 await instantiate_contract();
@@ -114,7 +114,7 @@ let verify_proof = async () => {
         { gasLimit: 200_000 }
     );
 
-    console.log(tx)
+    console.log(`Tx hash: ${tx.transactionHash}`);
 };
 
 await verify_proof();
