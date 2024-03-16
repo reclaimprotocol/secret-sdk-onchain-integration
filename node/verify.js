@@ -14,6 +14,13 @@ const secretjs = new SecretNetworkClient({
     walletAddress: wallet.address,
 });
 
+// Uncomment for mainnet
+// const secretjs = new SecretNetworkClient({
+//     chainId: "secret-4",
+//     url: "https://lcd.mainnet.secretsaturn.net",
+//     wallet: wallet,
+//     walletAddress: wallet.address,
+// });
 
 let codeId, contractCodeHash, contractAddress
 
@@ -49,6 +56,9 @@ await upload_contract();
 let instantiate_contract = async () => {
     const contract = "secret14k7awjkw8ykllsx8uvq0dfc6h57afrzudunhah"
     const code_hash = "db17efceec7a8d2c464af53e142dda38de5ea0665b5c548928d5243b21a624b4"
+    // Uncomment for mainnet
+    // const contract = "secret18u22df5dan6cyl6xuyjn9wsa3gauf53567ej90"
+    
     const instantiateMsg = { contract: contract, code_hash: code_hash };
     let tx = await secretjs.tx.compute.instantiateContract(
         {
