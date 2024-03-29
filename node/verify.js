@@ -5,7 +5,6 @@ dotenv.config();
 
 const wallet = new Wallet(process.env.MNEMONIC); // YOUR passphrase
 const contract_wasm = fs.readFileSync("../contract.wasm.gz");
-const owner = process.env.OWNER // YOUR address corresponding to the MNEMONIC above
 
 const secretjs = new SecretNetworkClient({
     chainId: "pulsar-3",
@@ -58,6 +57,7 @@ let instantiate_contract = async () => {
     const code_hash = "db17efceec7a8d2c464af53e142dda38de5ea0665b5c548928d5243b21a624b4"
     // Uncomment for mainnet
     // const contract = "secret18u22df5dan6cyl6xuyjn9wsa3gauf53567ej90"
+    // const code_hash = "db17efceec7a8d2c464af53e142dda38de5ea0665b5c548928d5243b21a624b4"
     
     const instantiateMsg = { contract: contract, code_hash: code_hash };
     let tx = await secretjs.tx.compute.instantiateContract(
