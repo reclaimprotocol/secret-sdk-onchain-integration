@@ -23,7 +23,7 @@ const secretjs = new SecretNetworkClient({
 
 let codeId, contractCodeHash, contractAddress
 
-let upload_contract = async () => {
+let uploadContract = async () => {
     let tx = await secretjs.tx.compute.storeCode(
         {
             sender: wallet.address,
@@ -50,9 +50,9 @@ let upload_contract = async () => {
 
 };
 
-await upload_contract();
+await uploadContract();
 
-let instantiate_contract = async () => {
+let instantiateContract = async () => {
     const contract = "secret14k7awjkw8ykllsx8uvq0dfc6h57afrzudunhah"
     const code_hash = "db17efceec7a8d2c464af53e142dda38de5ea0665b5c548928d5243b21a624b4"
     // Uncomment for mainnet
@@ -81,9 +81,9 @@ let instantiate_contract = async () => {
     console.log(`Contract address: ${contractAddress}`);
 };
 
-await instantiate_contract();
+await instantiateContract();
 
-let verify_proof = async () => {
+let verifyProof = async () => {
     const owner = "0xe4c20c9f558160ec08106de300326f7e9c73fb7f"
 
     const claimInfo = {
@@ -127,4 +127,4 @@ let verify_proof = async () => {
     console.log(`Tx hash: ${tx.transactionHash}`);
 };
 
-await verify_proof();
+await verifyProof();
